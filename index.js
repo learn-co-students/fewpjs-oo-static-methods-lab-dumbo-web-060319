@@ -10,18 +10,19 @@ class Formatter {
 
   static titleize(string) {
     let words = string.split(' ')
-
-    for(let word of words) {
-      if (word !== 'the' || word !== 'a' || word !== 'an' || word !== 'but' || word !== 'of' || word !== 'and' || word !== 'for' || word !== 'at' || word !== 'by' || word !== 'from') {
-        word = word.charAt(0).toUpperCase() + word.slice(1)
-      }
-    }
-
-    if (word[0].length > 0) {
+    if (words[0].length > 0) {
       words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1)
     } else {
       words[0].toUpperCase()
     }
+
+    for (let i = 1; i < words.length; i++) {
+      if (words[i] != 'the' && words[i] !== 'a' && words[i] !== 'an' && words[i] !== 'but' && words[i] !== 'of' && words[i] !== 'and' && words[i] !== 'for' && words[i] !== 'at' && words[i] !== 'by' && words[i] !== 'from') {
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1)
+      }
+    }
+
     return words.join(' ')
   }
+
 }
